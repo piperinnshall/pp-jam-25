@@ -11,5 +11,6 @@ radius = 36.6742
 shape = SubResource("CircleShape2D_h1g3r")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" groups=["Hookable"]]
+texture_filter = 3
 scale = Vector2(0.165568, 0.165568)
 texture = ExtResource("1_ibub6")

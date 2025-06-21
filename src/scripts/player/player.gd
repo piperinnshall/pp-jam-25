@@ -4,11 +4,23 @@ extends RigidBody2D
 @export var hook: StaticBody2D
 @export var pinjoint : PinJoint2D
 @onready var line = $Line2D
+@onready var label = $Label  # Reference to the Label node
 var hooked = false
 @onready var line_end = hook.get_node("Marker2D")
 
+func _ready():
+	# Set the initial emoticon face
+	label.text = "0 . 0"
+
 func _process(delta: float) -> void:
 	print(rad_to_deg(get_angle_to(get_global_mouse_position())))
+	
+	# Update emoticon face based on mouse button state
+	if Input.is_action_pressed("shoot"):
+		label.text = "> . <"
+	else:
+		label.text = "0 . 0"
+	
 	if Input.is_action_just_pressed("shoot") and not hooked:
 		ray_cast_2d.target_position = to_local(get_global_mouse_position())
 		ray_cast_2d.force_raycast_update()
