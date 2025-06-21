@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpljefbvh65p1"]
+
+[ext_resource type="PackedScene" uid="uid://cid3hupn2cc1t" path="res://src/scenes/utils/Raycast.tscn" id="1_0kbph"]
+[ext_resource type="Script" uid="uid://uwv3f740wdgu" path="res://src/scripts/player/player.gd" id="1_xqlsy"]
+[ext_resource type="Texture2D" uid="uid://ctddr5lknnv2o" path="res://icon.svg" id="3_xxciv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ev1bw"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_xqlsy")
+
+[node name="Raycast" parent="." instance=ExtResource("1_0kbph")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ev1bw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("3_xxciv")
+
+[node name="Camera2D" type="Camera2D" parent="."]
