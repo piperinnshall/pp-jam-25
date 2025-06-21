@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://8nnhaiuf5taq"]
+
+[ext_resource type="PackedScene" uid="uid://ca2mjl3kgpx36" path="res://player.tscn" id="1_gpvmk"]
+[ext_resource type="Texture2D" uid="uid://b1etgd0ybmxp4" path="res://sky.png" id="1_qfokq"]
+[ext_resource type="Texture2D" uid="uid://cllc6xge6vj3a" path="res://hook.png" id="4_47ihl"]
+[ext_resource type="Texture2D" uid="uid://dux7yqd7pb0vr" path="res://rope.png" id="4_hfffe"]
+[ext_resource type="PackedScene" uid="uid://dodgqrpoyhwmi" path="res://Platform.tscn" id="5_036b0"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bolhf"]
+friction = 0.0
+bounce = 0.17
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ceco4"]
+
+[node name="World" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 556.0
+offset_bottom = 304.0
+scale = Vector2(2.16, 2.16)
+texture = ExtResource("1_qfokq")
+stretch_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(577, 327)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(117, 37)
+node_a = NodePath("../Player")
+disable_collision = false
+softness = 16.0
+motor_target_velocity = 1.39626
+
+[node name="Player" parent="." node_paths=PackedStringArray("hook", "pinjoint") instance=ExtResource("1_gpvmk")]
+position = Vector2(360, 198)
+physics_material_override = SubResource("PhysicsMaterial_bolhf")
+lock_rotation = false
+contact_monitor = true
+max_contacts_reported = 2
+hook = NodePath("../HookPoint")
+pinjoint = NodePath("../PinJoint2D")
+
+[node name="Line2D" type="Line2D" parent="Player"]
+texture_repeat = 2
+position = Vector2(0.175957, 0.301231)
+scale = Vector2(1.0176, 1.03012)
+points = PackedVector2Array(0, 0, 130.527, 20.0935)
+width = 5.71
+texture = ExtResource("4_hfffe")
+texture_mode = 1
+
+[node name="HookPoint" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HookPoint"]
+shape = SubResource("CircleShape2D_ceco4")
+
+[node name="Sprite2D" type="Sprite2D" parent="HookPoint"]
+position = Vector2(-11, 1)
+rotation = 1.5708
+texture = ExtResource("4_47ihl")
+
+[node name="Marker2D" type="Marker2D" parent="HookPoint"]
+position = Vector2(-21, 0)
+
+[node name="Node2D" parent="." groups=["Hookable"] instance=ExtResource("5_036b0")]
+position = Vector2(580, 163)
+scale = Vector2(8.32, 8.32)
