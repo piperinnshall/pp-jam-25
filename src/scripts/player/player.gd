@@ -1,60 +1,68 @@
 extends RigidBody2D
+
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 @onready var speed = 10
 @export var hook: StaticBody2D
-@export var pinjoint : PinJoint2D
+@export var pinjoint: PinJoint2D
 @onready var line = $Line2D
-@onready var label = $Label  # Reference to the Label node
-var hooked = false
+@onready var label = $Label
 @onready var line_end = hook.get_node("Marker2D")
 
+var hooked = false
+
 func _ready():
-	# Set the initial emoticon face
 	label.text = "0 . 0"
 
 func _process(delta: float) -> void:
 	print(rad_to_deg(get_angle_to(get_global_mouse_position())))
-	
-	# Update emoticon face based on mouse button state
+	camera(delta)
+	update_emoticon()
+	shoot_input()
+	update_line()
+	movement()
+
+func camera(delta: float) -> void:
+	var cam = $Camera2D
+	cam.global_position.y = get_viewport().get_visible_rect().size.y / 2
+
+func update_emoticon():
 	if Input.is_action_pressed("shoot"):
 		label.text = "> . <"
 	else:
 		label.text = "0 . 0"
-	
+
+func shoot_input():
 	if Input.is_action_just_pressed("shoot") and not hooked:
-		ray_cast_2d.target_position = to_local(get_global_mouse_position())
-		ray_cast_2d.force_raycast_update()
-		if ray_cast_2d.is_colliding():
-			#get values from raycast
-			var hook_pos = ray_cast_2d.get_collision_point()
-			var collider = ray_cast_2d.get_collider()
-			
-			#if the ray collides with a hookable object, move pinjoint and hook to it
-			if collider.is_in_group("Hookable"):
-				hooked = true  # Only set hooked to true when we actually hook something!
-				pinjoint.global_position = hook_pos
-				hook.global_position = hook_pos
-				pinjoint.node_b = get_path_to(hook)
-				#rotate the hook so it is the right angle
-				var direction = hook_pos - global_position
-				hook.rotation = direction.angle()
+		try_hook()
 	elif Input.is_action_just_released("shoot") and hooked:
-		hooked = false	
-		pinjoint.node_b = NodePath("")	
-	
+		unhook()
+
+func try_hook():
+	ray_cast_2d.target_position = to_local(get_global_mouse_position())
+	ray_cast_2d.force_raycast_update()
+	if ray_cast_2d.is_colliding():
+		var hook_pos = ray_cast_2d.get_collision_point()
+		var collider = ray_cast_2d.get_collider()
+		if collider.is_in_group("Hookable"):
+			hooked = true
+			pinjoint.global_position = hook_pos
+			hook.global_position = hook_pos
+			pinjoint.node_b = get_path_to(hook)
+			var direction = hook_pos - global_position
+			hook.rotation = direction.angle()
+
+func unhook():
+	hooked = false
+	pinjoint.node_b = NodePath("")
+
+func update_line():
+	line.clear_points()
 	if hooked:
-		line.clear_points()
 		line.add_point(Vector2.ZERO)
 		line.add_point(to_local(line_end.global_position))
-	else:
-		line.clear_points()
-		
-	var grounded = get_contact_count()>0
-	
-	#if Input.is_action_pressed("retract") and hooked:
-		#retract code here
-		
-	#basic platformer code below
+
+func movement():
+	var grounded = get_contact_count() > 0
 	if Input.is_action_pressed("right") and (grounded or hooked):
 		apply_central_impulse(Vector2.RIGHT)
 	if Input.is_action_pressed("left") and (grounded or hooked):
