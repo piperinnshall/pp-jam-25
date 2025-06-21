@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://cflc8kfhh2l1o"]
+
+[ext_resource type="Texture2D" uid="uid://iohw4itchhko" path="res://assets/sprites/ChatGPT Image Jun 21, 2025, 11_43_27 AM (4).png" id="1_11iob"]
+[ext_resource type="Texture2D" uid="uid://dd3wjemsxjc56" path="res://assets/sprites/ChatGPT Image Jun 21, 2025, 11_43_27 AM (8).png" id="2_ux2na"]
+[ext_resource type="Texture2D" uid="uid://dgdruiat28u3m" path="res://assets/sprites/ChatGPT Image Jun 21, 2025, 11_43_27 AM (7).png" id="3_0uv3o"]
+[ext_resource type="Texture2D" uid="uid://b4bn46w3x8ks3" path="res://assets/sprites/ChatGPT Image Jun 21, 2025, 11_43_27 AM (6).png" id="4_1432i"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1536, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("1_11iob")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(1536, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource("2_ux2na")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1536, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource("3_0uv3o")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(1536, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+texture = ExtResource("4_1432i")
