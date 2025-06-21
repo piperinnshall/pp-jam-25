@@ -1,11 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://cflc8kfhh2l1o"]
+[gd_scene load_steps=6 format=3 uid="uid://cflc8kfhh2l1o"]
 
 [ext_resource type="Texture2D" uid="uid://iohw4itchhko" path="res://assets/sprites/ChatGPT Image Jun 21, 2025, 11_43_27 AM (4).png" id="1_11iob"]
+[ext_resource type="PackedScene" uid="uid://cpljefbvh65p1" path="res://src/scenes/player/Player.tscn" id="1_ux2na"]
 [ext_resource type="Texture2D" uid="uid://dd3wjemsxjc56" path="res://assets/sprites/ChatGPT Image Jun 21, 2025, 11_43_27 AM (8).png" id="2_ux2na"]
 [ext_resource type="Texture2D" uid="uid://dgdruiat28u3m" path="res://assets/sprites/ChatGPT Image Jun 21, 2025, 11_43_27 AM (7).png" id="3_0uv3o"]
 [ext_resource type="Texture2D" uid="uid://b4bn46w3x8ks3" path="res://assets/sprites/ChatGPT Image Jun 21, 2025, 11_43_27 AM (6).png" id="4_1432i"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_ux2na")]
+position = Vector2(103.505, 115)
+scale = Vector2(6.705, 6.705)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

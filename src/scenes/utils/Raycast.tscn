@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cid3hupn2cc1t"]
+[gd_scene load_steps=0 format=3 uid="uid://cid3hupn2cc1t"]
 
 [node name="Raycast" type="Node2D"]
 rotation = -1.5708
