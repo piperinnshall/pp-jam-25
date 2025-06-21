@@ -48,6 +48,7 @@ sharp_limit = 200.0
 shape = SubResource("CircleShape2D_ceco4")
 
 [node name="Sprite2D" type="Sprite2D" parent="HookPoint"]
+light_mask = 2
 position = Vector2(-15, 1)
 rotation = 1.0115
 scale = Vector2(0.0751025, 0.0751025)

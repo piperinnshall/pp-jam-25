@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkmpjbgxm6oug"]
+
+[ext_resource type="Texture2D" uid="uid://diqv3cujusls0" path="res://assets/sprites/light-png-free-download-2.png" id="1_qo3uv"]
+[ext_resource type="Texture2D" uid="uid://dij3sxrj0dnfo" path="res://assets/sprites/back4.png" id="2_xx5q6"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0, 1, 1, 1)
+energy = 0.64
+range_layer_min = -101
+shadow_enabled = true
+texture = ExtResource("1_qo3uv")
+offset = Vector2(-41.45, 17.095)
+texture_scale = 1.9
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(180, 96)
+texture = ExtResource("2_xx5q6")

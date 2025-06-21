@@ -11,7 +11,7 @@ var hooked = false
 func _ready():
 	# Set the initial emoticon face
 	label.text = "0 . 0"
-
+	label.modulate = Color.BLACK
 func _process(delta: float) -> void:
 	print(rad_to_deg(get_angle_to(get_global_mouse_position())))
 	
