@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dodgqrpoyhwmi"]
+
+[ext_resource type="Texture2D" uid="uid://cfj10eeqv5ouv" path="res://assets/sprites/hookable.png" id="1_ibub6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h1g3r"]
+radius = 36.6742
+
+[node name="Platform" type="StaticBody2D" groups=["Hookable"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_h1g3r")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" groups=["Hookable"]]
+scale = Vector2(0.165568, 0.165568)
+texture = ExtResource("1_ibub6")

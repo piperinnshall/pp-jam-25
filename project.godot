@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="HookShot"
-run/main_scene="uid://8nnhaiuf5taq"
+config/name="pp-jam-25"
+run/main_scene="res://src/Main.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

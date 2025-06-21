@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlla66e254khm"]
+
+[ext_resource type="Texture2D" uid="uid://mbnswdow3wbl" path="res://assets/sprites/leaf.png" id="1_babrl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_otevc"]
+
+[node name="HookPoint" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_otevc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-15, 1)
+rotation = 1.0115
+scale = Vector2(0.0751025, 0.0751025)
+texture = ExtResource("1_babrl")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-32, 0)
