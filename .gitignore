@@ -1,0 +1,6 @@
+.godot/
+.import/
+
+!.godot/project.godot
+!.godot/engine.cfg
+
