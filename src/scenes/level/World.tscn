@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://8nnhaiuf5taq"]
 
-[ext_resource type="PackedScene" uid="uid://ca2mjl3kgpx36" path="res://src/scenes/player/Player.tscn" id="1_anib2"]
-[ext_resource type="Texture2D" uid="uid://bhec7lc1vx355" path="res://assets/sprites/white_line.jpg" id="2_htt26"]
-[ext_resource type="Texture2D" uid="uid://mbnswdow3wbl" path="res://assets/sprites/leaf.png" id="3_mejed"]
-[ext_resource type="PackedScene" uid="uid://dodgqrpoyhwmi" path="res://src/scenes/level/Platform.tscn" id="4_1lrdt"]
+[ext_resource type="PackedScene" uid="uid://ca2mjl3kgpx36" path="res://src/scenes/player/Player.tscn" id="1_y5cph"]
+[ext_resource type="Texture2D" uid="uid://bhec7lc1vx355" path="res://assets/sprites/white_line.jpg" id="2_x8ssf"]
+[ext_resource type="Texture2D" uid="uid://mbnswdow3wbl" path="res://assets/sprites/leaf.png" id="3_iew2b"]
+[ext_resource type="PackedScene" uid="uid://dodgqrpoyhwmi" path="res://src/scenes/level/Platform.tscn" id="4_xc7f8"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bolhf"]
 friction = 0.0
@@ -13,9 +13,6 @@ bounce = 0.17
 
 [node name="World" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(577, 327)
-
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
 position = Vector2(117, 37)
 node_a = NodePath("../Player")
@@ -23,7 +20,7 @@ disable_collision = false
 softness = 16.0
 motor_target_velocity = 1.39626
 
-[node name="Player" parent="." node_paths=PackedStringArray("hook", "pinjoint") instance=ExtResource("1_anib2")]
+[node name="Player" parent="." node_paths=PackedStringArray("hook", "pinjoint") instance=ExtResource("1_y5cph")]
 position = Vector2(360, 198)
 physics_material_override = SubResource("PhysicsMaterial_bolhf")
 lock_rotation = false
@@ -38,7 +35,7 @@ position = Vector2(0.175957, 0.301231)
 scale = Vector2(1.0176, 1.03012)
 points = PackedVector2Array(0, 0, 130.527, 20.0935)
 width = 1.665
-texture = ExtResource("2_htt26")
+texture = ExtResource("2_x8ssf")
 texture_mode = 1
 sharp_limit = 200.0
 
@@ -52,10 +49,10 @@ light_mask = 2
 position = Vector2(-15, 1)
 rotation = 1.0115
 scale = Vector2(0.0751025, 0.0751025)
-texture = ExtResource("3_mejed")
+texture = ExtResource("3_iew2b")
 
 [node name="Marker2D" type="Marker2D" parent="HookPoint"]
 position = Vector2(-32, 0)
 
-[node name="Platform" parent="." instance=ExtResource("4_1lrdt")]
+[node name="Platform" parent="." instance=ExtResource("4_xc7f8")]
 position = Vector2(555, 135)
