@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://btmogh3frh2xg"]
 
 [ext_resource type="PackedScene" uid="uid://8nnhaiuf5taq" path="res://src/scenes/level/World.tscn" id="1_4gxt3"]
-[ext_resource type="PackedScene" uid="uid://jx4thi173rgl" path="res://src/scenes/level/Background.tscn" id="2_chrbn"]
+[ext_resource type="PackedScene" uid="uid://c1er8q7bnt4q8" path="res://src/scenes/level/ParallaxBackground.tscn" id="2_hk4rc"]
 
 [node name="Main" type="Node2D"]
 
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_hk4rc")]
+
 [node name="World" parent="." instance=ExtResource("1_4gxt3")]
 scale = Vector2(1.1105, 1.10646)
-
-[node name="Background" parent="." instance=ExtResource("2_chrbn")]

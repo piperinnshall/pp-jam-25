@@ -18,7 +18,6 @@ scale = Vector2(0.110273, 0.110273)
 texture = ExtResource("2_hqtel")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite2D"]
-scale = Vector2(1, 1)
 occluder = SubResource("OccluderPolygon2D_sdprq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
