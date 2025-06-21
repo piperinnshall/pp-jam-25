@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://cid3hupn2cc1t"]
+
+[node name="Raycast" type="Node2D"]
+rotation = -1.5708
+
+[node name="RayCast01" type="RayCast2D" parent="."]
+position = Vector2(0, 10)
+target_position = Vector2(0, 500)
+
+[node name="RayCast02" type="RayCast2D" parent="."]
+position = Vector2(2, 10)
+rotation = -0.0872665
+target_position = Vector2(0, 500)
+
+[node name="RayCast03" type="RayCast2D" parent="."]
+position = Vector2(-2, 10)
+rotation = 0.0872665
+target_position = Vector2(0, 500)
+
+[node name="RayCast04" type="RayCast2D" parent="."]
+position = Vector2(4, 10)
+rotation = -0.174533
+target_position = Vector2(0, 500)
+
+[node name="RayCast05" type="RayCast2D" parent="."]
+position = Vector2(-4, 10)
+rotation = 0.174533
+target_position = Vector2(0, 500)
+
+[node name="RayCast06" type="RayCast2D" parent="."]
+position = Vector2(6, 10)
+rotation = -0.261799
+target_position = Vector2(0, 500)
+
+[node name="RayCast07" type="RayCast2D" parent="."]
+position = Vector2(-6, 10)
+rotation = 0.261799
+target_position = Vector2(0, 500)
+
+[node name="RayCast08" type="RayCast2D" parent="."]
+position = Vector2(8, 10)
+rotation = -0.349066
+target_position = Vector2(0, 500)
+
+[node name="RayCast09" type="RayCast2D" parent="."]
+position = Vector2(-8, 10)
+rotation = 0.349066
+target_position = Vector2(0, 500)
+
+[node name="RayCast10" type="RayCast2D" parent="."]
+position = Vector2(10, 10)
+rotation = -0.436332
+target_position = Vector2(0, 500)
+
+[node name="RayCast11" type="RayCast2D" parent="."]
+position = Vector2(-10, 10)
+rotation = 0.436332
+target_position = Vector2(0, 500)
+
+[node name="RayCast12" type="RayCast2D" parent="."]
+position = Vector2(12, 10)
+rotation = -0.523599
+target_position = Vector2(0, 500)
+
+[node name="RayCast13" type="RayCast2D" parent="."]
+position = Vector2(-12, 10)
+rotation = 0.523599
+target_position = Vector2(0, 500)
+
+[node name="RayCast14" type="RayCast2D" parent="."]
+position = Vector2(14, 10)
+rotation = -0.610865
+target_position = Vector2(0, 500)
+
+[node name="RayCast15" type="RayCast2D" parent="."]
+position = Vector2(-14, 10)
+rotation = 0.610865
+target_position = Vector2(0, 500)
+
+[node name="RayCast16" type="RayCast2D" parent="."]
+position = Vector2(16, 10)
+rotation = -0.698132
+target_position = Vector2(0, 500)
+
+[node name="RayCast17" type="RayCast2D" parent="."]
+position = Vector2(-16, 10)
+rotation = 0.698132
+target_position = Vector2(0, 500)
+
+[node name="RayCast18" type="RayCast2D" parent="."]
+position = Vector2(18, 10)
+rotation = -0.785398
+target_position = Vector2(0, 500)
+
+[node name="RayCast19" type="RayCast2D" parent="."]
+position = Vector2(-18, 10)
+rotation = 0.785398
+target_position = Vector2(0, 500)
