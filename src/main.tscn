@@ -8,11 +8,11 @@
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("3_5q4o7")]
-position = Vector2(-3, -104)
+position = Vector2(-70, -318)
 scale = Vector2(3, 3)
 
 [node name="floor" type="StaticBody2D" parent="."]
-position = Vector2(-1, 142)
+position = Vector2(35, 599)
 scale = Vector2(1000, 10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
@@ -25,7 +25,7 @@ scale = Vector2(0.15, 0.15)
 texture = ExtResource("1_eewff")
 
 [node name="block1" type="StaticBody2D" parent="."]
-position = Vector2(-2.00003, -104)
+position = Vector2(-69.0001, -318)
 scale = Vector2(5, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="block1"]
@@ -38,7 +38,7 @@ scale = Vector2(0.15, 0.15)
 texture = ExtResource("1_eewff")
 
 [node name="block2" type="StaticBody2D" parent="."]
-position = Vector2(313, -141)
+position = Vector2(246, -355)
 scale = Vector2(5, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="block2"]
@@ -51,7 +51,7 @@ scale = Vector2(0.15, 0.15)
 texture = ExtResource("1_eewff")
 
 [node name="block3" type="StaticBody2D" parent="."]
-position = Vector2(-488, -157)
+position = Vector2(-555, -371)
 scale = Vector2(5, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="block3"]
@@ -64,7 +64,7 @@ scale = Vector2(0.15, 0.15)
 texture = ExtResource("1_eewff")
 
 [node name="block4" type="StaticBody2D" parent="."]
-position = Vector2(-284, -145)
+position = Vector2(-351, -359)
 scale = Vector2(5, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="block4"]
