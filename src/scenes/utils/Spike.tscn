@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqyyr4jol3q2g"]
+[gd_scene load_steps=8 format=3 uid="uid://cqyyr4jol3q2g"]
 
 [ext_resource type="Texture2D" uid="uid://cjc5h6lbwwk7t" path="res://assets/sprites/spikes.png" id="1_e6jbk"]
-[ext_resource type="Script" uid="uid://tgh16np4sec3" path="res://src/scripts/utils/area_2d.gd" id="2_1afd8"]
+[ext_resource type="Script" uid="uid://cdwdabvxo18mk" path="res://src/scripts/utils/spike.gd" id="2_1afd8"]
+[ext_resource type="Script" uid="uid://tgh16np4sec3" path="res://src/scripts/utils/spike_collide.gd" id="3_mrhrj"]
 
 [sub_resource type="Gradient" id="Gradient_1afd8"]
 colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
@@ -16,6 +17,7 @@ width = 461
 size = Vector2(35, 30)
 
 [node name="Spike" type="StaticBody2D" groups=["Spike"]]
+script = ExtResource("2_1afd8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
@@ -31,8 +33,7 @@ texture = SubResource("GradientTexture1D_mrhrj")
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
-
-script = ExtResource("2_1afd8")
+script = ExtResource("3_mrhrj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(21, 1)

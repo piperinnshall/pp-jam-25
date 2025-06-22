@@ -1,14 +1,21 @@
 extends Node
 
 @onready var spike_wall_scene: PackedScene = preload("res://src/scenes/utils/SpikeWall.tscn")
+@onready var spike_scene: PackedScene = preload("res://src/scenes/utils/SpikeWall.tscn")
 @onready var platform_scene: PackedScene = preload("res://src/scenes/utils/Platform.tscn")
+@onready var branch_scene: PackedScene = preload("res://src/scenes/utils/Branch.tscn")
+
 
 func _ready():
 	_spawn_spike_wall()
 	_spawn_platform(true)
+	_spawn_platform(false)
 	
-	$Timer.timeout.connect(_on_Timer_timeout)
-	$Timer.start()
+	$PlatformTimer.timeout.connect(_on_PlatformTimer_timeout)
+	$PlatformTimer.start()
+	
+	$BranchTimer.timeout.connect(_on_BranchTimer_timeout)
+	$BranchTimer.start()
 
 func _spawn_spike_wall():
 	var wall = spike_wall_scene.instantiate()
@@ -21,6 +28,15 @@ func _spawn_platform(first_spawn: bool):
 	platform.z_index = 1000
 	get_tree().get_root().call_deferred("add_child", platform)
 	platform.call_deferred("setup", first_spawn)
+	
+func _spawn_branch():
+	var branch = branch_scene.instantiate()
+	branch.z_index = 1000
+	get_tree().get_root().call_deferred("add_child", branch)
+	branch.call_deferred("setup_custom_branch")
 
-func _on_Timer_timeout():
+func _on_PlatformTimer_timeout():
 	_spawn_platform(false)
+
+func _on_BranchTimer_timeout():
+	_spawn_branch()

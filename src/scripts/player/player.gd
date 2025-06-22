@@ -20,15 +20,17 @@ func _ready():
 	# Initialize health bar
 	health_bar.set_health(current_health, max_health)
 	connect("body_entered", Callable(self, "_on_body_entered"))
+	$Timer.timeout.connect(_on_Timer_timeout)
+	$Timer.start()
 
-func _process(delta: float) -> void:
-	camera(delta)
+func _process(_delta: float) -> void:
+	camera()
 	update_emoticon()
 	shoot_input()
 	update_line()
 	movement()
 
-func camera(delta: float) -> void:
+func camera() -> void:
 	var cam = $Camera2D
 	cam.global_position.x = global_position.x
 	cam.global_position.y = get_viewport().get_visible_rect().size.y / 2
@@ -108,4 +110,8 @@ func heal(amount: float):
 	current_health = min(max_health, current_health + amount)
 	health_bar.set_health(current_health, max_health)
 
-	
+func _on_Timer_timeout() -> void:
+	var pad_y = 25
+	var screen_bottom = get_viewport().get_visible_rect().size.y + pad_y
+	if global_position.y > screen_bottom:
+		take_damage(20)

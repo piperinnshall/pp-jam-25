@@ -22,7 +22,7 @@ func setup(first_spawn: bool):
 	cleanup_old_platforms()
 
 func cleanup_old_platforms():
-	while platform_instances.size() > 60:
+	while platform_instances.size() > 600:
 		var old_platform = platform_instances.pop_front()
 		if is_instance_valid(old_platform):
 			old_platform.queue_free()

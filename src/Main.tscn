@@ -2,8 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://8nnhaiuf5taq" path="res://src/scenes/level/World.tscn" id="1_4gxt3"]
 [ext_resource type="PackedScene" uid="uid://c1er8q7bnt4q8" path="res://src/scenes/level/ParallaxBackground.tscn" id="2_hk4rc"]
-[ext_resource type="PackedScene" uid="uid://b45ac32een21i" path="res://src/scenes/utils/Branch.tscn" id="3_chrbn"]
-
 
 [node name="Main" type="Node2D"]
 

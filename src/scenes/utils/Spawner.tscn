@@ -5,5 +5,8 @@
 [node name="Spawner" type="Node2D"]
 script = ExtResource("1_c50il")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+[node name="PlatformTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="BranchTimer" type="Timer" parent="."]
+wait_time = 1.5
