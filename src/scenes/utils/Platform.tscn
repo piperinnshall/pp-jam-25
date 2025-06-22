@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dodgqrpoyhwmi"]
+
+[ext_resource type="PackedScene" uid="uid://dkmpjbgxm6oug" path="res://src/scenes/level/Light.tscn" id="1_ruy4u"]
+[ext_resource type="Script" uid="uid://u2uawpt5ryrl" path="res://src/scripts/utils/platform.gd" id="1_vpcbn"]
+[ext_resource type="Texture2D" uid="uid://cfj10eeqv5ouv" path="res://assets/sprites/hookable.png" id="2_vpcbn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h1g3r"]
+radius = 36.6742
+
+[node name="Platform" type="StaticBody2D" groups=["Hookable"]]
+script = ExtResource("1_vpcbn")
+
+[node name="Node2D" parent="." instance=ExtResource("1_ruy4u")]
+position = Vector2(1, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_h1g3r")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" groups=["Hookable"]]
+light_mask = 2
+texture_filter = 3
+scale = Vector2(0.165568, 0.165568)
+texture = ExtResource("2_vpcbn")

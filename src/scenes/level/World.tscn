@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://8nnhaiuf5taq"]
+[gd_scene load_steps=7 format=3 uid="uid://8nnhaiuf5taq"]
 
 [ext_resource type="PackedScene" uid="uid://ca2mjl3kgpx36" path="res://src/scenes/player/Player.tscn" id="1_y5cph"]
 [ext_resource type="Texture2D" uid="uid://bhec7lc1vx355" path="res://assets/sprites/white_line.jpg" id="2_x8ssf"]
 [ext_resource type="Texture2D" uid="uid://mbnswdow3wbl" path="res://assets/sprites/leaf.png" id="3_iew2b"]
-[ext_resource type="PackedScene" uid="uid://dodgqrpoyhwmi" path="res://src/scenes/level/Platform.tscn" id="4_xc7f8"]
 [ext_resource type="PackedScene" uid="uid://h20o7fbw6ur" path="res://src/scenes/utils/Spawner.tscn" id="5_htt26"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bolhf"]
@@ -54,8 +53,5 @@ texture = ExtResource("3_iew2b")
 
 [node name="Marker2D" type="Marker2D" parent="HookPoint"]
 position = Vector2(-32, 0)
-
-[node name="Platform" parent="." instance=ExtResource("4_xc7f8")]
-position = Vector2(555, 135)
 
 [node name="Spawner" parent="." instance=ExtResource("5_htt26")]

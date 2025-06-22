@@ -1,16 +1,26 @@
 extends Node
 
 @onready var spike_wall_scene: PackedScene = preload("res://src/scenes/utils/SpikeWall.tscn")
-@onready var hook_point_scene: PackedScene = preload("res://src/scenes/utils/HookPoint.tscn")
+@onready var platform_scene: PackedScene = preload("res://src/scenes/utils/Platform.tscn")
 
 func _ready():
-	var spike_wall_instance = spike_wall_scene.instantiate()
-	spike_wall_instance.z_index = 1001
-
-	get_tree().get_root().call_deferred("add_child", spike_wall_instance)
-	spike_wall_instance.call_deferred("setup")
-	
+	_spawn_spike_wall()
+	_spawn_platform()
 	$Timer.timeout.connect(_on_Timer_timeout)
+	$Timer.start()
+
+func _spawn_spike_wall():
+	var wall = spike_wall_scene.instantiate()
+	wall.z_index = 1000
+	get_tree().get_root().call_deferred("add_child", wall)
+	wall.call_deferred("setup")
+	
+func _spawn_platform():
+	var platform = platform_scene.instantiate()
+	platform.z_index = 1000
+	get_tree().get_root().call_deferred("add_child", platform)
+	platform.call_deferred("setup")
 
 func _on_Timer_timeout():
-	return
+	_spawn_platform()
+	
