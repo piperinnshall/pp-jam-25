@@ -12,4 +12,4 @@
 scale = Vector2(1.1105, 1.10646)
 
 [node name="Node2D" parent="." instance=ExtResource("3_chrbn")]
-position = Vector2(809, 271)
+position = Vector2(866, 424)
