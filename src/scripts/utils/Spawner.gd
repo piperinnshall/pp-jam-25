@@ -3,7 +3,7 @@ extends Node
 @onready var spike_wall_scene: PackedScene = preload("res://src/scenes/utils/SpikeWall.tscn")
 @onready var spike_trap_scene: PackedScene = preload("res://src/scenes/utils/SpikeTrap.tscn")
 @onready var platform_scene: PackedScene = preload("res://src/scenes/utils/Platform.tscn")
-@onready var branch_scene: PackedScene = preload("res://src/scenes/utils/Branch.tscn")
+@onready var branch_scene: PackedScene = preload("res://src/scenes/utils/branch.tscn")
 
 
 func _ready():

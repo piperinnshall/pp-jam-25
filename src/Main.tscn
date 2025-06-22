@@ -1,7 +1,86 @@
-[gd_scene load_steps=2 format=3 uid="uid://btmogh3frh2xg"]
+[gd_scene load_steps=8 format=3 uid="uid://btlvx6cxrnyra"]
 
-[ext_resource type="PackedScene" uid="uid://8nnhaiuf5taq" path="res://src/scenes/level/World.tscn" id="1_4gxt3"]
+[ext_resource type="Script" path="res://src/scripts/level/main_menu.gd" id="1_hk4rc"]
+[ext_resource type="Texture2D" uid="uid://ct41somd8wqng" path="res://assets/sprites/ChatGPT Image Jun 22, 2025, 04_58_05 PM.png" id="2_chrbn"]
+[ext_resource type="FontFile" uid="uid://8da4pniwi2p3" path="res://assets/sprites/zai_Olivetti-UnderwoodStudio21Typewriter.otf" id="3_chrbn"]
 
-[node name="Main" type="Node2D"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_23bpq"]
 
-[node name="World" parent="." instance=ExtResource("1_4gxt3")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54unw"]
+bg_color = Color(0.01882, 0.0869955, 0.079124, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_size = 12
+shadow_offset = Vector2(0, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_51y5g"]
+bg_color = Color(0.0749182, 0.209947, 0.195285, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_size = 12
+shadow_offset = Vector2(0, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gxsih"]
+bg_color = Color(0.18658, 0.429414, 0.402847, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_size = 12
+shadow_offset = Vector2(0, 10)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hk4rc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(630.5, 361)
+scale = Vector2(0.86263, 0.740234)
+texture = ExtResource("2_chrbn")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.0
+offset_top = -109.0
+offset_right = 223.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_chrbn")
+theme_override_font_sizes/font_size = 69
+theme_override_styles/focus = SubResource("StyleBoxEmpty_23bpq")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_54unw")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_54unw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_51y5g")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_54unw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gxsih")
+text = " Play "
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
