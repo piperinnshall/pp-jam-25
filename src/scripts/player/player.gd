@@ -173,12 +173,23 @@ func update_line():
 
 func movement():
 	var grounded = get_contact_count() > 0
-	if Input.is_action_pressed("right") and (grounded or hooked):
-		apply_central_impulse(Vector2.RIGHT)
-	if Input.is_action_pressed("left") and (grounded or hooked):
-		apply_central_impulse(Vector2.LEFT)
+	var air_control = 0.1
+	var impulse_strength = 1.0
+
+	if not grounded and not hooked:
+		impulse_strength = air_control
+
+	if Input.is_action_pressed("right"):
+		apply_central_impulse(Vector2.RIGHT * speed * impulse_strength)
+	if Input.is_action_pressed("left"):
+		apply_central_impulse(Vector2.LEFT * speed * impulse_strength)
 	if Input.is_action_just_pressed("jump") and grounded:
 		apply_central_impulse(Vector2.UP * 100)
+
+	# Clamp horizontal velocity to prevent infinite speed
+	var max_speed = 430.0
+	if abs(linear_velocity.x) > max_speed:
+		linear_velocity.x = sign(linear_velocity.x) * max_speed
 
 func take_damage(amount: float):
 	current_health = max(0, current_health - amount)

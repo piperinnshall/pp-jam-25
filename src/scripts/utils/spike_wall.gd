@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var spike_scene: PackedScene = preload("res://src/scenes/utils/Spike.tscn")
 
-@export var move_speed: float = 200
+@export var move_speed: float = 300
 @export var spike_count: int = 100
 @export var spacing: int = 27
 
