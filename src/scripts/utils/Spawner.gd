@@ -1,7 +1,7 @@
 extends Node
 
 @onready var spike_wall_scene: PackedScene = preload("res://src/scenes/utils/SpikeWall.tscn")
-@onready var spike_scene: PackedScene = preload("res://src/scenes/utils/SpikeWall.tscn")
+@onready var spike_trap_scene: PackedScene = preload("res://src/scenes/utils/SpikeTrap.tscn")
 @onready var platform_scene: PackedScene = preload("res://src/scenes/utils/Platform.tscn")
 @onready var branch_scene: PackedScene = preload("res://src/scenes/utils/Branch.tscn")
 
@@ -23,6 +23,12 @@ func _spawn_spike_wall():
 	get_tree().get_root().call_deferred("add_child", wall)
 	wall.call_deferred("setup")
 	
+func _spawn_spike():
+	var spike = spike_trap_scene.instantiate()
+	spike.z_index = 1000
+	get_tree().get_root().call_deferred("add_child", spike)
+	spike.call_deferred("setup_custom_spike")
+	
 func _spawn_platform(first_spawn: bool):
 	var platform = platform_scene.instantiate()
 	platform.z_index = 1000
@@ -40,3 +46,4 @@ func _on_PlatformTimer_timeout():
 
 func _on_BranchTimer_timeout():
 	_spawn_branch()
+	_spawn_spike()

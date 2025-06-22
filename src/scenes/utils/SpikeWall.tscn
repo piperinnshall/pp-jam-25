@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://c72hpi3wwxw0m"]
+[gd_scene load_steps=4 format=3 uid="uid://c72hpi3wwxw0m"]
 
 [ext_resource type="Script" uid="uid://bbeyb5o1w68pi" path="res://src/scripts/utils/spike_wall.gd" id="1_wtfbp"]
 
+[sub_resource type="Gradient" id="Gradient_wwjnu"]
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wtfbp"]
+gradient = SubResource("Gradient_wwjnu")
+
 [node name="SpikeWall" type="Node2D"]
 script = ExtResource("1_wtfbp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-488.5, 9.00003)
+scale = Vector2(14.6406, 29.2188)
+texture = SubResource("GradientTexture2D_wtfbp")

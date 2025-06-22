@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://8nnhaiuf5taq"]
+[gd_scene load_steps=8 format=3 uid="uid://8nnhaiuf5taq"]
 
 [ext_resource type="PackedScene" uid="uid://ca2mjl3kgpx36" path="res://src/scenes/player/Player.tscn" id="1_y5cph"]
 [ext_resource type="Texture2D" uid="uid://bhec7lc1vx355" path="res://assets/sprites/white_line.jpg" id="2_x8ssf"]
 [ext_resource type="Texture2D" uid="uid://mbnswdow3wbl" path="res://assets/sprites/leaf.png" id="3_iew2b"]
 [ext_resource type="PackedScene" uid="uid://h20o7fbw6ur" path="res://src/scenes/utils/Spawner.tscn" id="5_htt26"]
+[ext_resource type="PackedScene" uid="uid://c1er8q7bnt4q8" path="res://src/scenes/level/ParallaxBackground.tscn" id="5_mejed"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bolhf"]
 friction = 0.0
@@ -12,6 +13,9 @@ bounce = 0.17
 [sub_resource type="CircleShape2D" id="CircleShape2D_ceco4"]
 
 [node name="World" type="Node2D"]
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("5_mejed")]
+position = Vector2(-153, -179)
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
 position = Vector2(117, 37)
