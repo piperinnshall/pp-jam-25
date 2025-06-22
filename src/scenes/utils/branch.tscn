@@ -101,9 +101,10 @@ resource_local_to_scene = true
 size = Vector2(52.0982, 52.0982)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8qfbt"]
-size = Vector2(641.865, 1235.38)
+size = Vector2(539.75, 1136.91)
 
 [node name="Node2D" type="Polygon2D"]
+position = Vector2(0, -2)
 scale = Vector2(0.274201, 0.274201)
 texture = ExtResource("1_8qfbt")
 skeleton = NodePath("Skeleton2D")
@@ -217,6 +218,7 @@ metadata/_local_pose_override_enabled_ = true
 [node name="Bone-7" type="Bone2D" parent="Skeleton2D"]
 position = Vector2(403.39, 1062.23)
 rotation = -2.0058
+scale = Vector2(1, 1)
 rest = Transform2D(-0.421418, -0.906867, 0.906867, -0.421418, 403.39, 1062.23)
 auto_calculate_length_and_angle = false
 length = 200.0
@@ -711,10 +713,9 @@ node_a = NodePath("..")
 node_b = NodePath("../../Bone-9")
 softness = 84.2
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Branch"]]
 position = Vector2(404.812, 1236.32)
 collision_layer = 0
-collision_mask = 0
 
 [node name="PinJoint2D" type="PinJoint2D" parent="StaticBody2D"]
 node_a = NodePath("../../Bone-7")
@@ -722,6 +723,6 @@ node_b = NodePath("..")
 angular_limit_lower = 1.28805
 angular_limit_upper = 1.28805
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(29.1757, -607.689)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" groups=["Branch"]]
+position = Vector2(25.5288, -558.455)
 shape = SubResource("RectangleShape2D_8qfbt")

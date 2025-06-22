@@ -32,6 +32,7 @@ enabled=PackedStringArray("res://addons/softbody2d/plugin.cfg", "res://addons/tr
 [global_group]
 
 Spike=""
+Branch=""
 
 [input]
 

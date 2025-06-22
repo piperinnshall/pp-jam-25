@@ -19,6 +19,7 @@ func _ready():
 	label.modulate = Color.BLACK
 	# Initialize health bar
 	health_bar.set_health(current_health, max_health)
+	connect("body_entered", Callable(self, "_on_body_entered"))
 
 func _process(delta: float) -> void:
 	camera(delta)
@@ -93,6 +94,21 @@ func _on_body_entered(body: Node) -> void:
 		can_hook = false
 		unhook()
 		# Take damage when hitting spikes
-		# take_damage(20)  # Adjust damage amount as needed
+		take_damage(20)  # Adjust damage amount as needed
 		await get_tree().create_timer(5.0).timeout
 		can_hook = true
+	
+	if body.is_in_group("Branch"):
+		# Heal when touching branches
+		heal(15)  # Adjust heal amount as needed
+		#body.queue_free()  # Remove the branch after collecting it
+		
+	
+		
+func heal(amount: float):
+	current_health = min(max_health, current_health + amount)
+	health_bar.set_health(current_health, max_health)
+		
+		
+
+	
