@@ -11,7 +11,7 @@ func _process(delta: float) -> void:
 
 func setup():
 	var viewport_size = get_viewport_rect().size
-	var spawn_position = Vector2(-200, viewport_size.y * 0.5)
+	var spawn_position = Vector2(-600, viewport_size.y * 0.5)
 	global_position = spawn_position
 	scale = Vector2(1, 1)
 	_spawn_spike_wall()

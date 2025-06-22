@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://8nnhaiuf5taq"]
+[gd_scene load_steps=11 format=3 uid="uid://8nnhaiuf5taq"]
 
+[ext_resource type="PackedScene" uid="uid://5lvrolusojt4" path="res://src/scenes/level/Jungle.tscn" id="1_1lrdt"]
 [ext_resource type="PackedScene" uid="uid://c1er8q7bnt4q8" path="res://src/scenes/level/ParallaxBackground.tscn" id="1_mejed"]
 [ext_resource type="PackedScene" uid="uid://ca2mjl3kgpx36" path="res://src/scenes/player/Player.tscn" id="1_y5cph"]
 [ext_resource type="Texture2D" uid="uid://bhec7lc1vx355" path="res://assets/sprites/white_line.jpg" id="2_x8ssf"]
@@ -47,6 +48,11 @@ width = 1.665
 texture = ExtResource("2_x8ssf")
 texture_mode = 1
 sharp_limit = 200.0
+
+[node name="Jungle" parent="Player" instance=ExtResource("1_1lrdt")]
+position = Vector2(-360, -198)
+volume_db = 4.0
+playback_type = 1
 
 [node name="HookPoint" type="StaticBody2D" parent="."]
 

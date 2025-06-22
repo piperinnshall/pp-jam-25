@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://5lvrolusojt4"]
+
+[ext_resource type="AudioStream" uid="uid://cuo0l2jtdy2ee" path="res://assets/music/cinematic-action-jungle-drums-loop-125bpm-345139.mp3" id="1_i5qlv"]
+
+[node name="Jungle" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_i5qlv")
+autoplay = true

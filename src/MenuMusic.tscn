@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cn5u4f5wexthe"]
+
+[ext_resource type="AudioStream" uid="uid://dff8igpkql6io" path="res://assets/music/jungle-forest-wildlife-background-music-326441 (2).mp3" id="1_doe18"]
+
+[node name="MenuMusic" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_doe18")
+autoplay = true
