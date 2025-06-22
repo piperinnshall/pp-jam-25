@@ -187,8 +187,8 @@ func take_damage(amount: float):
 	# Check if dead
 	if current_health <= 0:
 		print("Player died!")
-		shake_time = 2.0         # Duration of shake in seconds
-		shake_strength = 10.0    # How intense the shake is
+		shake_time = 3.0         # Duration of shake in seconds
+		shake_strength = 8.0    # How intense the shake is
 
 		#await get_tree().create_timer(2.0).timeout
 
@@ -218,13 +218,14 @@ func _on_body_entered(body: Node) -> void:
 		can_hook = false
 		unhook()
 		# Take damage when hitting spikes
-		take_damage(20)  # Adjust damage amount as needed
+		take_damage(15)  # Adjust damage amount as needed
 		await get_tree().create_timer(0.3).timeout
 		can_hook = true
 
 	if body.is_in_group("Branch"):
 		# Heal when touching branches
-		heal(15)  # Adjust heal amount as needed
+		heal(35)  # Adjust heal amount as needed
+		print("hello fuck head")
 		#body.queue_free()  # Remove the branch after collecting it
 
 

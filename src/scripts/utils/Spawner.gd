@@ -40,6 +40,7 @@ func _spawn_branch():
 	branch.z_index = 1000
 	get_tree().get_root().call_deferred("add_child", branch)
 	branch.call_deferred("setup_custom_branch")
+	branch.add_to_group("Branch")
 
 func _on_PlatformTimer_timeout():
 	_spawn_platform(false)
