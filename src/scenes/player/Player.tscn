@@ -16,7 +16,7 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_xxciv"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+colors = PackedColorArray(0.150822, 0.386047, 0.279341, 1, 1, 1, 1, 0)
 
 [node name="Player" type="RigidBody2D" groups=["Player"]]
 z_as_relative = false
@@ -34,6 +34,7 @@ occluder = SubResource("OccluderPolygon2D_sdprq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_as_relative = false
+position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_6oxxb")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
@@ -57,7 +58,7 @@ width = 30.0
 width_curve = SubResource("Curve_xqlsy")
 gradient = SubResource("Gradient_xxciv")
 script = ExtResource("3_xqlsy")
-length = 1000
+length = 200
 metadata/_custom_type_script = "uid://2sdimqaeblwx"
 
 [node name="HealthBar" type="Control" parent="."]
@@ -71,6 +72,8 @@ grow_vertical = 2
 [node name="HealthCircle" type="Control" parent="HealthBar"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 256.0
+offset_top = -107.0
+offset_right = 296.0
+offset_bottom = -67.0
 script = ExtResource("4_xxciv")

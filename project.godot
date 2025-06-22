@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="pp-jam-25"
-run/main_scene="res://src/Main.tscn"
+run/main_scene="uid://btlvx6cxrnyra"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -32,8 +32,8 @@ enabled=PackedStringArray("res://addons/softbody2d/plugin.cfg", "res://addons/tr
 [global_group]
 
 Spike=""
-Player=""
 Branch=""
+Player=""
 
 [input]
 

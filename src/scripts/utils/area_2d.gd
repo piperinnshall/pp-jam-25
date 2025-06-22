@@ -2,8 +2,8 @@ extends Area2D
 
 func _ready():
 	# Connect both signals to handle different collision types
-	connect("body_entered", _on_body_entered)
-	connect("area_entered", _on_area_entered)
+	#connect("body_entered", _on_body_entered)
+	#connect("area_entered", _on_area_entered)
 	
 	# Make sure monitoring is enabled
 	monitoring = true
