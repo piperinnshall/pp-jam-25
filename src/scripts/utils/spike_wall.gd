@@ -3,7 +3,7 @@ extends Node2D
 @onready var spike_scene: PackedScene = preload("res://src/scenes/utils/Spike.tscn")
 
 @export var move_speed: float = 100
-@export var spike_count: int = 200
+@export var spike_count: int = 50
 @export var spacing: int = 27
 
 func _process(delta: float) -> void:

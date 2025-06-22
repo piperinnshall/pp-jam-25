@@ -92,9 +92,7 @@ func _on_body_entered(body: Node) -> void:
 		apply_central_impulse(direction * 300)
 		can_hook = false
 		unhook()
-		
 		# Take damage when hitting spikes
-		take_damage(20)  # Adjust damage amount as needed
-		
+		# take_damage(20)  # Adjust damage amount as needed
 		await get_tree().create_timer(5.0).timeout
 		can_hook = true
