@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dodgqrpoyhwmi"]
 
-[ext_resource type="PackedScene" uid="uid://dkmpjbgxm6oug" path="res://src/scenes/level/Light.tscn" id="1_ruy4u"]
+[ext_resource type="PackedScene" uid="uid://dkmpjbgxm6oug" path="res://src/scenes/level/light.tscn" id="1_ruy4u"]
 [ext_resource type="Script" uid="uid://u2uawpt5ryrl" path="res://src/scripts/utils/platform.gd" id="1_vpcbn"]
 [ext_resource type="Texture2D" uid="uid://cfj10eeqv5ouv" path="res://assets/sprites/hookable.png" id="2_vpcbn"]
 

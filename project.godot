@@ -34,6 +34,7 @@ enabled=PackedStringArray("res://addons/softbody2d/plugin.cfg", "res://addons/tr
 Spike=""
 Branch=""
 Player=""
+Spawner=""
 
 [input]
 

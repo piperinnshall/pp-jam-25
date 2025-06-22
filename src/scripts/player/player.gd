@@ -7,6 +7,7 @@ extends RigidBody2D
 @onready var line = $Line2D
 @onready var label = $Label
 @onready var score = get_node("/root/World/CanvasLayer/Score")
+@onready var spike_trap = get_node("res://src/scenes/utils/SpikeTrap.tscn")
 @onready var health_bar = $HealthBar/HealthCircle
 #@onready var line_end = hook.get_node("Marker2D")
 var line_end
@@ -207,19 +208,29 @@ func take_damage(amount: float):
 		# Add death logic here
 
 func start_death_sequence():
-	# Store reference to scene tree before any potential node removal
 	var tree = get_tree()
 
-	# Check if we still have a valid tree reference
 	if not tree or not is_inside_tree():
 		print("Warning: Cannot start death sequence - node not in tree")
 		return
 
-	# Wait for 2 seconds
+	# Clear all spawned objects
+	var spawner = tree.get_first_node_in_group("Spawner")
+	if spawner:
+		spawner.call_deferred("clear_spawned_instances")
+	else:
+		print("Spawner not found in scene tree")
+
 	await tree.create_timer(1.0).timeout
 
-	# Quit the game
-	tree.quit()
+	get_tree().reload_current_scene()
+
+
+
+
+
+
+
 
 
 func _on_body_entered(body: Node) -> void:
