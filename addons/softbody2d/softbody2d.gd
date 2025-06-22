@@ -31,6 +31,7 @@ func setup_custom_branch():
 	var next_pos = Vector2(last_branch_x + branch_distance + random_x_offset, FIXED_Y)
 	global_position = next_pos
 	last_branch_x = global_position.x
+	
 ## Custom spawning block end
 
 func _set(property, value):
