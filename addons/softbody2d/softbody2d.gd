@@ -17,6 +17,23 @@ signal joint_removed(rigid_body_a: SoftBodyChild, rigid_body_b: SoftBodyChild)
 
 #region Properties
 
+## Custom spawning code for Branches
+## 
+## Ensures consistent spawning
+
+static var last_branch_x = 1500
+var branch_distance = 1200
+var x_variation = 300
+const FIXED_Y = 386
+
+func setup_custom_branch():
+	var random_x_offset = randf_range(-x_variation, x_variation)
+	var next_pos = Vector2(last_branch_x + branch_distance + random_x_offset, FIXED_Y)
+	global_position = next_pos
+	last_branch_x = global_position.x
+	
+## Custom spawning block end
+
 func _set(property, value):
 	if property == "texture":
 		texture = value as Texture2D
@@ -1072,11 +1089,6 @@ func _ready():
 	if Engine.is_editor_hint():
 		return
 	_update_vars()
-	connect("body_entered", Callable(self, "_on_body_entered"))
-
-func _on_body_entered(body: Node) -> void:
-	if body.is_in_group("Spike"):
-		print("hi")
 
 func _update_vars():
 	_skeleton_node = get_node_or_null(skeleton)
