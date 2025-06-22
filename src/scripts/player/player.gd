@@ -183,19 +183,28 @@ func take_damage(amount: float):
 	# Check if dead
 	if current_health <= 0:
 		print("Player died!")
-		shake_time = 1.0         # Duration of shake in seconds
+		shake_time = 2.0         # Duration of shake in seconds
 		shake_strength = 10.0    # How intense the shake is
-
+		
 		#await get_tree().create_timer(2.0).timeout
 		
 		start_death_sequence()
 		# Add death logic here
 
 func start_death_sequence():
-	if get_tree():  # Safe check just in case
-		await get_tree().create_timer(2.0).timeout
-		get_tree().change_scene_to_file("res://src/Main.tscn")
-
+	# Store reference to scene tree before any potential node removal
+	var tree = get_tree()
+	
+	# Check if we still have a valid tree reference
+	if not tree or not is_inside_tree():
+		print("Warning: Cannot start death sequence - node not in tree")
+		return
+	
+	# Wait for 2 seconds
+	await tree.create_timer(1.0).timeout
+	
+	# Quit the game
+	tree.quit()
 
 
 func _on_body_entered(body: Node) -> void:

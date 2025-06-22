@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://8nnhaiuf5taq"]
+
+[ext_resource type="PackedScene" uid="uid://c1er8q7bnt4q8" path="res://src/scenes/level/ParallaxBackground.tscn" id="1_mejed"]
+[ext_resource type="PackedScene" uid="uid://ca2mjl3kgpx36" path="res://src/scenes/player/Player.tscn" id="1_y5cph"]
+[ext_resource type="Texture2D" uid="uid://bhec7lc1vx355" path="res://assets/sprites/white_line.jpg" id="2_x8ssf"]
+[ext_resource type="Texture2D" uid="uid://mbnswdow3wbl" path="res://assets/sprites/leaf.png" id="3_iew2b"]
+[ext_resource type="PackedScene" uid="uid://h20o7fbw6ur" path="res://src/scenes/utils/Spawner.tscn" id="5_htt26"]
+[ext_resource type="FontFile" uid="uid://8da4pniwi2p3" path="res://assets/sprites/zai_Olivetti-UnderwoodStudio21Typewriter.otf" id="6_mejed"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bolhf"]
+friction = 0.0
+bounce = 0.17
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ceco4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mejed"]
+font = ExtResource("6_mejed")
+font_size = 30
+font_color = Color(0.075252, 0.131712, 0.0740234, 1)
+shadow_size = 3
+shadow_color = Color(0.345098, 0.505882, 0.341176, 1)
+
+[node name="World" type="Node2D"]
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+node_a = NodePath("../Player")
+softness = 16.0
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_mejed")]
+position = Vector2(-86, -161)
+
+[node name="Player" parent="." node_paths=PackedStringArray("hook", "pinjoint") instance=ExtResource("1_y5cph")]
+position = Vector2(360, 198)
+physics_material_override = SubResource("PhysicsMaterial_bolhf")
+lock_rotation = false
+contact_monitor = true
+max_contacts_reported = 2
+hook = NodePath("../HookPoint")
+pinjoint = NodePath("../PinJoint2D")
+
+[node name="Line2D" type="Line2D" parent="Player"]
+texture_repeat = 2
+position = Vector2(0.175957, 0.301231)
+scale = Vector2(1.0176, 1.03012)
+points = PackedVector2Array(0, 0, 130.527, 20.0935)
+width = 1.665
+texture = ExtResource("2_x8ssf")
+texture_mode = 1
+sharp_limit = 200.0
+
+[node name="HookPoint" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HookPoint"]
+shape = SubResource("CircleShape2D_ceco4")
+
+[node name="Sprite2D" type="Sprite2D" parent="HookPoint"]
+light_mask = 2
+position = Vector2(-15, 1)
+rotation = 1.0115
+scale = Vector2(0.0751025, 0.0751025)
+texture = ExtResource("3_iew2b")
+
+[node name="Marker2D" type="Marker2D" parent="HookPoint"]
+position = Vector2(-32, 0)
+
+[node name="Spawner" parent="." instance=ExtResource("5_htt26")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -166.0
+offset_top = 3.0
+offset_right = -2.0
+offset_bottom = 71.0
+grow_horizontal = 0
+label_settings = SubResource("LabelSettings_mejed")
