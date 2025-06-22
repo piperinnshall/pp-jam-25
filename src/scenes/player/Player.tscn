@@ -18,7 +18,7 @@ point_count = 2
 [sub_resource type="Gradient" id="Gradient_xxciv"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="Player" type="RigidBody2D"]
+[node name="Player" type="RigidBody2D" groups=["Player"]]
 z_as_relative = false
 lock_rotation = true
 script = ExtResource("1_2kdwn")

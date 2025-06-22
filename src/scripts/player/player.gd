@@ -19,6 +19,7 @@ func _ready():
 	label.modulate = Color.BLACK
 	# Initialize health bar
 	health_bar.set_health(current_health, max_health)
+	connect("body_entered", Callable(self, "_on_body_entered"))
 
 func _process(delta: float) -> void:
 	camera(delta)
