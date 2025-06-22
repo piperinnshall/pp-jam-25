@@ -16,6 +16,8 @@ var can_hook = true
 func _ready():
 	label.text = "0 . 0"
 	label.modulate = Color.BLACK
+	connect("body_entered", Callable(self, "_on_body_entered"))
+
 
 func _process(delta: float) -> void:
 	# print(rad_to_deg(get_angle_to(get_global_mouse_position())))
@@ -24,7 +26,6 @@ func _process(delta: float) -> void:
 	shoot_input()
 	update_line()
 	movement()
-	connect("body_entered", Callable(self, "_on_body_entered"))
 
 func camera(delta: float) -> void:
 	var cam = $Camera2D
@@ -78,7 +79,7 @@ func movement():
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("Spike"):
 		var direction = (global_position - body.global_position).normalized()
-		apply_central_impulse(Vector2.RIGHT * 300)
+		apply_central_impulse(direction * 300)
 		can_hook = false
 		unhook()
 		await get_tree().create_timer(5.0).timeout

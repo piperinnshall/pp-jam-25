@@ -1,17 +1,25 @@
 extends Node2D
 
-static var SPAWN_POSITION: Vector2 = Vector2(-200, 0)
+@onready var spike_scene: PackedScene = preload("res://src/scenes/utils/Spike.tscn")
 
 @export var move_speed: float = 100
-
-func _ready():
-	set_process(false)
+@export var spike_count: int = 200
+@export var spacing: int = 27
 
 func _process(delta: float) -> void:
-	global_position += Vector2(move_speed * delta, 0)
+	global_position.x += move_speed * delta
 
 func setup():
-	global_position = SPAWN_POSITION
-	scale =  Vector2(1, 1)
-	
+	var viewport_size = get_viewport_rect().size
+	var spawn_position = Vector2(-200, viewport_size.y * 0.5)
+	global_position = spawn_position
+	scale = Vector2(1, 1)
+	_spawn_spike_wall()
 	set_process(true)
+
+func _spawn_spike_wall():
+	var half = spike_count / 2.0 - 0.5
+	for i in range(spike_count):
+		var spike = spike_scene.instantiate()
+		add_child(spike)
+		spike.position = Vector2(0, (i - half) * spacing)
