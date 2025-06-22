@@ -1072,6 +1072,11 @@ func _ready():
 	if Engine.is_editor_hint():
 		return
 	_update_vars()
+	connect("body_entered", Callable(self, "_on_body_entered"))
+
+func _on_body_entered(body: Node) -> void:
+	if body.is_in_group("Spike"):
+		print("hi")
 
 func _update_vars():
 	_skeleton_node = get_node_or_null(skeleton)

@@ -103,12 +103,9 @@ func _on_body_entered(body: Node) -> void:
 		heal(15)  # Adjust heal amount as needed
 		#body.queue_free()  # Remove the branch after collecting it
 		
-	
-		
+
 func heal(amount: float):
 	current_health = min(max_health, current_health + amount)
 	health_bar.set_health(current_health, max_health)
-		
-		
 
 	
