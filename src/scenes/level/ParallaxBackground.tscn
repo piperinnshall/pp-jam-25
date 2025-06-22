@@ -6,9 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://dij3sxrj0dnfo" path="res://assets/sprites/back4.png" id="4_dv1qr"]
 
 [node name="ParallaxBackground" type="Node2D"]
-position = Vector2(0, -100)
+z_index = -100
+z_as_relative = false
 
 [node name="Parallax2D4" type="Parallax2D" parent="."]
+z_index = -100
+z_as_relative = false
 scroll_scale = Vector2(0.1, 0.1)
 repeat_size = Vector2(1536, 0)
 
@@ -17,6 +20,8 @@ texture = ExtResource("4_dv1qr")
 centered = false
 
 [node name="Parallax2D3" type="Parallax2D" parent="."]
+z_index = -100
+z_as_relative = false
 scroll_scale = Vector2(0.3, 0.3)
 repeat_size = Vector2(1536, 0)
 
@@ -25,6 +30,8 @@ texture = ExtResource("3_jehc6")
 centered = false
 
 [node name="Parallax2D2" type="Parallax2D" parent="."]
+z_index = -100
+z_as_relative = false
 scroll_scale = Vector2(0.5, 0.5)
 repeat_size = Vector2(1536, 0)
 
@@ -33,6 +40,8 @@ texture = ExtResource("2_a0hyk")
 centered = false
 
 [node name="Parallax2D1" type="Parallax2D" parent="."]
+z_index = -100
+z_as_relative = false
 scroll_scale = Vector2(0.9, 0.9)
 repeat_size = Vector2(1536, 0)
 

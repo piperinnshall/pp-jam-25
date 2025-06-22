@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+@export var contacts_reported = 10
+
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 @onready var speed = 10
 @export var hook: StaticBody2D
@@ -9,18 +11,20 @@ extends RigidBody2D
 @onready var line_end = hook.get_node("Marker2D")
 
 var hooked = false
+var can_hook = true
 
 func _ready():
 	label.text = "0 . 0"
 	label.modulate = Color.BLACK
 
 func _process(delta: float) -> void:
-	print(rad_to_deg(get_angle_to(get_global_mouse_position())))
+	# print(rad_to_deg(get_angle_to(get_global_mouse_position())))
 	camera(delta)
 	update_emoticon()
 	shoot_input()
 	update_line()
 	movement()
+	connect("body_entered", Callable(self, "_on_body_entered"))
 
 func camera(delta: float) -> void:
 	var cam = $Camera2D
@@ -33,7 +37,7 @@ func update_emoticon():
 		label.text = "0 . 0"
 
 func shoot_input():
-	if Input.is_action_just_pressed("shoot") and not hooked:
+	if Input.is_action_just_pressed("shoot") and not hooked and can_hook:
 		try_hook()
 	elif Input.is_action_just_released("shoot") and hooked:
 		unhook()
@@ -70,3 +74,12 @@ func movement():
 		apply_central_impulse(Vector2.LEFT)
 	if Input.is_action_just_pressed("jump") and grounded:
 		apply_central_impulse(Vector2.UP * 100)
+
+func _on_body_entered(body: Node) -> void:
+	if body.is_in_group("Spike"):
+		var direction = (global_position - body.global_position).normalized()
+		apply_central_impulse(Vector2.RIGHT * 300)
+		can_hook = false
+		unhook()
+		await get_tree().create_timer(5.0).timeout
+		can_hook = true

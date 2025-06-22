@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ca2mjl3kgpx36"]
+[gd_scene load_steps=8 format=3 uid="uid://ca2mjl3kgpx36"]
 
 [ext_resource type="Script" uid="uid://haqqwpiswtsg" path="res://src/scripts/player/player.gd" id="1_2kdwn"]
 [ext_resource type="Texture2D" uid="uid://bdp4xtnojdc25" path="res://assets/sprites/caterpillar.png" id="2_hqtel"]
+[ext_resource type="Script" uid="uid://2sdimqaeblwx" path="res://addons/trail_2d/trail_2d.gd" id="3_xqlsy"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_sdprq"]
 polygon = PackedVector2Array(0, 0, -136.026, -181.368, -117.889, -190.436, -90.684, -208.573, -54.4104, -217.642, -27.2052, -226.71, 9.0684, -226.71, 45.342, -226.71, 90.684, -208.573, 145.094, -181.368, 172.3, -145.094, 190.436, -117.889, 208.573, -90.684, 217.642, -54.4104, 217.642, -18.1368, 217.642, 36.2736, 199.505, 90.684, 181.368, 108.821, 181.368, 117.889, 190.436, 136.026, 199.505, 163.231, 181.368, 181.368, 172.3, 172.3, 163.231, 154.163, 163.231, 136.026, 136.026, 163.231, 108.821, 181.368, 117.889, 199.505, 108.821, 226.71, 90.684, 226.71, 90.684, 208.573, 90.684, 190.436, 27.2052, 208.573, -27.2052, 208.573, -108.821, 181.368, -117.889, 190.436, -117.889, 208.573, -126.958, 217.642, -136.026, 199.505, -136.026, 172.3, -126.958, 163.231, -172.3, 126.958, -181.368, 136.026, -181.368, 154.163, -199.505, 163.231, -208.573, 136.026, -190.436, 108.821, -190.436, 99.7524, -208.573, 54.4104, -217.642, -9.0684, -217.642, -54.4104, -199.505, -99.7524, -181.368, -136.026, -163.231, -154.163, -136.026, -181.368)
@@ -9,26 +10,51 @@ polygon = PackedVector2Array(0, 0, -136.026, -181.368, -117.889, -190.436, -90.6
 [sub_resource type="CircleShape2D" id="CircleShape2D_6oxxb"]
 radius = 34.7131
 
+[sub_resource type="Curve" id="Curve_xqlsy"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_xxciv"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
 [node name="Player" type="RigidBody2D"]
+z_as_relative = false
 lock_rotation = true
 script = ExtResource("1_2kdwn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_as_relative = false
 scale = Vector2(0.110273, 0.110273)
 texture = ExtResource("2_hqtel")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite2D"]
+z_as_relative = false
 occluder = SubResource("OccluderPolygon2D_sdprq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_as_relative = false
 shape = SubResource("CircleShape2D_6oxxb")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+z_as_relative = false
 
 [node name="Label" type="Label" parent="."]
+z_as_relative = false
 offset_left = -15.0
 offset_top = -16.0
 offset_right = 59.0
 offset_bottom = 29.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+z_as_relative = false
+
+[node name="Trail2D" type="Line2D" parent="."]
+z_index = -10
+z_as_relative = false
+width = 30.0
+width_curve = SubResource("Curve_xqlsy")
+gradient = SubResource("Gradient_xxciv")
+script = ExtResource("3_xqlsy")
+length = 1000
+metadata/_custom_type_script = "uid://2sdimqaeblwx"
